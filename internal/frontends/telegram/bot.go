@@ -35,8 +35,33 @@ func (b *Bot) SendSignals(signals []types.Signal) error {
 		return nil
 	}
 
-	message := b.formatSignalsMessage(signals)
-	return b.SendMessage(message)
+	// Sort signals: Bullish (green) first, then Bearish (red)
+	sort.Slice(signals, func(i, j int) bool {
+		isIBullish := signals[i].Trend != "bearish"
+		isJBullish := signals[j].Trend != "bearish"
+
+		if isIBullish != isJBullish {
+			return isIBullish
+		}
+		return signals[i].Symbol < signals[j].Symbol
+	})
+
+	// Split into chunks to avoid Telegram message limit (4096 chars)
+	// A safe batch size is around 50 signals per message
+	batchSize := 50
+	for i := 0; i < len(signals); i += batchSize {
+		end := i + batchSize
+		if end > len(signals) {
+			end = len(signals)
+		}
+
+		batch := signals[i:end]
+		message := b.formatSignalsMessage(batch)
+		if err := b.SendMessage(message); err != nil {
+			return err
+		}
+	}
+	return nil
 }
 
 func (b *Bot) SendMessage(message string) error {
@@ -71,20 +96,6 @@ func (b *Bot) formatSignalsMessage(signals []types.Signal) string {
 
 	// Header
 	builder.WriteString(fmt.Sprintf("📊 <b>%s</b> (%s)\n\n", pattern, interval))
-
-	// Sort signals: Bullish (green) first, then Bearish (red)
-	sort.Slice(signals, func(i, j int) bool {
-		// If trends are different, prioritize bullish ("bullish" comes after "bearish" alphabetically, so we invert)
-		// We want Bullish (Trend != "bearish") to come before Bearish (Trend == "bearish")
-		isIBullish := signals[i].Trend != "bearish"
-		isJBullish := signals[j].Trend != "bearish"
-
-		if isIBullish != isJBullish {
-			return isIBullish // Bullish (true) comes before Bearish (false)
-		}
-		// If trends are same, sort by Symbol
-		return signals[i].Symbol < signals[j].Symbol
-	})
 
 	for _, signal := range signals {
 		icon := "🟢"
