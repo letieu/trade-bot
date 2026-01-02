@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"strconv"
 	"strings"
+	"time"
 
 	"github.com/letieu/trade-bot/internal/config"
 	"github.com/letieu/trade-bot/internal/types"
@@ -107,6 +108,24 @@ func (c *Client) GetSymbols() ([]string, error) {
 	return symbols, nil
 }
 
+func (c *Client) doRequestWithRetry(req *http.Request) (*http.Response, error) {
+	var resp *http.Response
+	var err error
+	maxRetries := 3
+
+	for i := 0; i < maxRetries; i++ {
+		resp, err = c.client.Do(req)
+		if err == nil {
+			return resp, nil
+		}
+
+		// Only retry on network errors or timeouts
+		log.Printf("Request failed (attempt %d/%d): %v. Retrying in 2s...", i+1, maxRetries, err)
+		time.Sleep(2 * time.Second)
+	}
+	return nil, fmt.Errorf("after %d attempts: %w", maxRetries, err)
+}
+
 func (c *Client) GetCandles(symbol, interval string, limit int) ([]types.Candle, error) {
 	bybitInterval := mapIntervalToBybit(interval)
 	url := fmt.Sprintf("%s/v5/market/kline?category=linear&symbol=%s&interval=%s&limit=%d",
@@ -121,7 +140,7 @@ func (c *Client) GetCandles(symbol, interval string, limit int) ([]types.Candle,
 		req.Header.Set(key, value)
 	}
 
-	resp, err := c.client.Do(req)
+	resp, err := c.doRequestWithRetry(req)
 	if err != nil {
 		return nil, fmt.Errorf("failed to execute request: %w", err)
 	}

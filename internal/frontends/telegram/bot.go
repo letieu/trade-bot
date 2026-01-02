@@ -2,6 +2,7 @@ package telegram
 
 import (
 	"fmt"
+	"sort"
 	"strconv"
 	"strings"
 
@@ -44,7 +45,8 @@ func (b *Bot) SendMessage(message string) error {
 		return fmt.Errorf("invalid chat ID format: %w", err)
 	}
 	msg := tgbotapi.NewMessage(chatID, message)
-	msg.ParseMode = "Markdown"
+	msg.ParseMode = "HTML"
+	msg.DisableWebPagePreview = true
 
 	_, sendErr := b.bot.Send(msg)
 	if sendErr != nil {
@@ -59,7 +61,7 @@ func (b *Bot) SendMessage(message string) error {
 
 func (b *Bot) formatSignalsMessage(signals []types.Signal) string {
 	if len(signals) == 0 {
-		return "No trading signals found"
+		return ""
 	}
 
 	var builder strings.Builder
@@ -67,19 +69,34 @@ func (b *Bot) formatSignalsMessage(signals []types.Signal) string {
 	pattern := signals[0].Pattern
 	interval := signals[0].Interval
 
-	builder.WriteString(fmt.Sprintf("%s — %s\n\n", pattern, interval))
+	// Header
+	builder.WriteString(fmt.Sprintf("📊 <b>%s</b> (%s)\n\n", pattern, interval))
+
+	// Sort signals: Bullish (green) first, then Bearish (red)
+	sort.Slice(signals, func(i, j int) bool {
+		// If trends are different, prioritize bullish ("bullish" comes after "bearish" alphabetically, so we invert)
+		// We want Bullish (Trend != "bearish") to come before Bearish (Trend == "bearish")
+		isIBullish := signals[i].Trend != "bearish"
+		isJBullish := signals[j].Trend != "bearish"
+
+		if isIBullish != isJBullish {
+			return isIBullish // Bullish (true) comes before Bearish (false)
+		}
+		// If trends are same, sort by Symbol
+		return signals[i].Symbol < signals[j].Symbol
+	})
 
 	for _, signal := range signals {
-		trendIcon := "⬆️"
+		icon := "🟢"
 		if signal.Trend == "bearish" {
-			trendIcon = "⬇️"
+			icon = "🔴"
 		}
 
-		line := fmt.Sprintf("*%s* %s ‣ RSI: %.2f ‣ EMA20: %.2f ‣ Vol: %.1f",
-			signal.Symbol, trendIcon, signal.RSI, signal.EMA, signal.Volume)
+		// Format: 🟢 <a href="..."><b>BTCUSDT</b></a>
+		url := fmt.Sprintf("https://www.bybit.com/trade/usdt/%s", signal.Symbol)
+		line := fmt.Sprintf("%s <a href=\"%s\"><b>%s</b></a>\n", icon, url, signal.Symbol)
 
 		builder.WriteString(line)
-		builder.WriteString("\n")
 	}
 
 	return builder.String()
