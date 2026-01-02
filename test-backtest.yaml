@@ -1,0 +1,24 @@
+telegram:
+  botToken: "test_token"
+  chatId: "test_chat"
+
+bybit:
+  baseUrl: "https://api.bybit.com"
+  timeout: "10s"
+  rateLimit: 20
+
+bot:
+  scanInterval: "1m"
+  batchSize: 20
+  maxConcurrency: 5
+  enabledIntervals:
+    - "1h"
+    - "4h"
+    - "1d"
+
+backtest:
+  startTime: "2024-01-01T00:00:00Z"
+  endTime: "2024-01-02T00:00:00Z"
+  dataPath: "./data"
+  saveResults: true
+  resultsPath: "./results"

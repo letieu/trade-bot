@@ -1,0 +1,2160 @@
+{
+  "totalSignals": 0,
+  "signalsBySymbol": {},
+  "signalsByTime": [],
+  "missingSignals": [
+    {
+      "time": "2026-01-02T18:16:33.326396287+07:00",
+      "symbol": "0GUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:33.395797312+07:00",
+      "symbol": "1000000BABYDOGEUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:33.464631349+07:00",
+      "symbol": "1000000CHEEMSUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:33.530765048+07:00",
+      "symbol": "1000000MOGUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:33.595430112+07:00",
+      "symbol": "10000ELONUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:33.666323048+07:00",
+      "symbol": "10000QUBICUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:33.72760249+07:00",
+      "symbol": "10000SATSUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:33.804458437+07:00",
+      "symbol": "1000BONKUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:33.873129613+07:00",
+      "symbol": "1000BTTUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:33.934785696+07:00",
+      "symbol": "1000CATUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:34.006507601+07:00",
+      "symbol": "1000FLOKIUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:34.069076908+07:00",
+      "symbol": "1000LUNCUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:34.137414081+07:00",
+      "symbol": "1000NEIROCTOUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:34.199882364+07:00",
+      "symbol": "1000PEPEUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:34.267442161+07:00",
+      "symbol": "1000RATSUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:34.340336418+07:00",
+      "symbol": "1000TAGUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:34.407161886+07:00",
+      "symbol": "1000TOSHIUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:34.47390402+07:00",
+      "symbol": "1000TURBOUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:34.541745327+07:00",
+      "symbol": "1000XECUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:34.609233956+07:00",
+      "symbol": "1000XUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:34.677739789+07:00",
+      "symbol": "1INCHUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:34.749035092+07:00",
+      "symbol": "2ZUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:34.811694618+07:00",
+      "symbol": "4USDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:34.980755757+07:00",
+      "symbol": "A2ZUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:35.042765076+07:00",
+      "symbol": "AAVEUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:35.11006102+07:00",
+      "symbol": "ACEUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:35.175274585+07:00",
+      "symbol": "ACHUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:35.258023131+07:00",
+      "symbol": "ACTUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:35.390852478+07:00",
+      "symbol": "ACXUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:35.586111874+07:00",
+      "symbol": "ADAUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:35.658617922+07:00",
+      "symbol": "AERGOUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:35.894280561+07:00",
+      "symbol": "AEROUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:36.09884748+07:00",
+      "symbol": "AEVOUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:36.174980308+07:00",
+      "symbol": "AGIUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:36.406531386+07:00",
+      "symbol": "AGLDUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:36.489656077+07:00",
+      "symbol": "AINUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:36.713370935+07:00",
+      "symbol": "AIOUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:37.024384118+07:00",
+      "symbol": "AIOZUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:37.225324625+07:00",
+      "symbol": "AIXBTUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:37.429947783+07:00",
+      "symbol": "AKEUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:37.639867501+07:00",
+      "symbol": "AKTUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:37.706316838+07:00",
+      "symbol": "ALCHUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:37.767737645+07:00",
+      "symbol": "ALEOUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:37.827954674+07:00",
+      "symbol": "ALGOUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:37.892980573+07:00",
+      "symbol": "ALICEUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:37.966076159+07:00",
+      "symbol": "ALLOUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:38.034752836+07:00",
+      "symbol": "ALPINEUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:38.105430041+07:00",
+      "symbol": "ALTUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:38.166420934+07:00",
+      "symbol": "ALUUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:38.233011119+07:00",
+      "symbol": "ANIMEUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:38.302597858+07:00",
+      "symbol": "ANKRUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:38.468805779+07:00",
+      "symbol": "APEUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:38.53776662+07:00",
+      "symbol": "APEXUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:38.604536201+07:00",
+      "symbol": "API3USDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:38.669377804+07:00",
+      "symbol": "APRUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:38.738593457+07:00",
+      "symbol": "APTUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:38.807994378+07:00",
+      "symbol": "ARBUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:38.867958042+07:00",
+      "symbol": "ARCUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:39.038308499+07:00",
+      "symbol": "ARIAUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:39.098438651+07:00",
+      "symbol": "ARKMUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:39.169216948+07:00",
+      "symbol": "ARKUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:39.250231752+07:00",
+      "symbol": "ARPAUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:39.318667307+07:00",
+      "symbol": "ARUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:39.382954536+07:00",
+      "symbol": "ASPUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:39.444158924+07:00",
+      "symbol": "ASRUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:39.509780146+07:00",
+      "symbol": "ASTERUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:39.571247719+07:00",
+      "symbol": "ASTRUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:39.63221242+07:00",
+      "symbol": "ATHUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:39.695770104+07:00",
+      "symbol": "ATOMUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:39.756697618+07:00",
+      "symbol": "ATUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:39.817765109+07:00",
+      "symbol": "AUCTIONUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:39.893296644+07:00",
+      "symbol": "AUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:39.965129562+07:00",
+      "symbol": "AVAAIUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:40.025632991+07:00",
+      "symbol": "AVAUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:40.103156733+07:00",
+      "symbol": "AVAXUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:40.166479907+07:00",
+      "symbol": "AVLUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:40.228452894+07:00",
+      "symbol": "AVNTUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:40.291644497+07:00",
+      "symbol": "AWEUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:40.372569951+07:00",
+      "symbol": "AXLUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:40.432996803+07:00",
+      "symbol": "AXSUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:40.500511076+07:00",
+      "symbol": "B2USDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:40.577519592+07:00",
+      "symbol": "B3USDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:40.638534749+07:00",
+      "symbol": "BABYUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:40.705047539+07:00",
+      "symbol": "BANANAS31USDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:40.772587799+07:00",
+      "symbol": "BANANAUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:40.834192845+07:00",
+      "symbol": "BANDUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:40.900262777+07:00",
+      "symbol": "BANKUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:40.961621453+07:00",
+      "symbol": "BANUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:41.02460162+07:00",
+      "symbol": "BARDUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:41.085213707+07:00",
+      "symbol": "BATUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:41.152971178+07:00",
+      "symbol": "BBUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:41.214018838+07:00",
+      "symbol": "BCHUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:41.284594882+07:00",
+      "symbol": "BEAMUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:41.354121186+07:00",
+      "symbol": "BEATUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:41.414668559+07:00",
+      "symbol": "BELUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:41.475211831+07:00",
+      "symbol": "BERAUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:41.543698008+07:00",
+      "symbol": "BICOUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:41.620068417+07:00",
+      "symbol": "BIGTIMEUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:41.701302573+07:00",
+      "symbol": "BIOUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:41.761179273+07:00",
+      "symbol": "BLASTUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:41.821814744+07:00",
+      "symbol": "BLESSUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:41.883569515+07:00",
+      "symbol": "BLUAIUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:41.953729338+07:00",
+      "symbol": "BLURUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:42.016557682+07:00",
+      "symbol": "BMTUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:42.085190875+07:00",
+      "symbol": "BNBUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:42.153432147+07:00",
+      "symbol": "BNTUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:42.215615025+07:00",
+      "symbol": "BOBAUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:42.2873476+07:00",
+      "symbol": "BOBBOBUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:42.36122701+07:00",
+      "symbol": "BOMEUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:42.425747673+07:00",
+      "symbol": "BRETTUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:42.494501179+07:00",
+      "symbol": "BROCCOLIUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:42.555094951+07:00",
+      "symbol": "BRUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:42.626905166+07:00",
+      "symbol": "BSUUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:42.691267209+07:00",
+      "symbol": "BSVUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:42.76728909+07:00",
+      "symbol": "BTCUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:42.832188677+07:00",
+      "symbol": "BTRUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:42.899183577+07:00",
+      "symbol": "BUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:42.960181767+07:00",
+      "symbol": "C98USDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:43.033265218+07:00",
+      "symbol": "CAKEUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:43.109924955+07:00",
+      "symbol": "CAMPUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:43.176300012+07:00",
+      "symbol": "CARVUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:43.248185216+07:00",
+      "symbol": "CATIUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:43.314248167+07:00",
+      "symbol": "CCUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:43.376459681+07:00",
+      "symbol": "CELOUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:43.441164154+07:00",
+      "symbol": "CETUSUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:43.521194032+07:00",
+      "symbol": "CFXUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:43.583454932+07:00",
+      "symbol": "CGPTUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:43.647582899+07:00",
+      "symbol": "CHILLGUYUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:43.725276544+07:00",
+      "symbol": "CHRUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:43.794918898+07:00",
+      "symbol": "CHZUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:43.861099376+07:00",
+      "symbol": "CKBUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:43.921731075+07:00",
+      "symbol": "CLANKERUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:43.995022919+07:00",
+      "symbol": "CLOUDUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:44.072329716+07:00",
+      "symbol": "CLOUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:44.147100572+07:00",
+      "symbol": "COAIUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:44.218912205+07:00",
+      "symbol": "COMMONUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:44.310933481+07:00",
+      "symbol": "COMPUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:44.386941944+07:00",
+      "symbol": "COOKIEUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:44.448993849+07:00",
+      "symbol": "COOKUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:44.509246064+07:00",
+      "symbol": "COREUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:44.578219317+07:00",
+      "symbol": "COTIUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:44.644904484+07:00",
+      "symbol": "COWUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:44.708559203+07:00",
+      "symbol": "CROSSUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:44.774953961+07:00",
+      "symbol": "CROUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:44.835694536+07:00",
+      "symbol": "CRVUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:44.909744075+07:00",
+      "symbol": "CTCUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:44.976936575+07:00",
+      "symbol": "CTKUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:45.054903491+07:00",
+      "symbol": "CTSIUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:45.127645591+07:00",
+      "symbol": "CUDISUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:45.200938501+07:00",
+      "symbol": "CUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:45.265566439+07:00",
+      "symbol": "CVCUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:45.327070876+07:00",
+      "symbol": "CVXUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:45.397751178+07:00",
+      "symbol": "CYBERUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:45.459360874+07:00",
+      "symbol": "CYSUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:45.545875125+07:00",
+      "symbol": "DAMUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:45.606092273+07:00",
+      "symbol": "DASHUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:45.675653913+07:00",
+      "symbol": "DBRUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:45.742101123+07:00",
+      "symbol": "DEEPUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:45.80870523+07:00",
+      "symbol": "DEGENUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:45.868219957+07:00",
+      "symbol": "DENTUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:45.931177923+07:00",
+      "symbol": "DEXEUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:45.999079132+07:00",
+      "symbol": "DGBUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:46.062114105+07:00",
+      "symbol": "DIAUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:46.146111197+07:00",
+      "symbol": "DODOUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:46.206745151+07:00",
+      "symbol": "DOGEUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:46.277187611+07:00",
+      "symbol": "DOGUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:46.35248458+07:00",
+      "symbol": "DOLOUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:46.421903318+07:00",
+      "symbol": "DOODUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:46.483228209+07:00",
+      "symbol": "DOTUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:46.545704299+07:00",
+      "symbol": "DRIFTUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:46.629683917+07:00",
+      "symbol": "DUSKUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:46.725097491+07:00",
+      "symbol": "DYDXUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:46.791440443+07:00",
+      "symbol": "DYMUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:46.865611513+07:00",
+      "symbol": "EDENUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:46.938155034+07:00",
+      "symbol": "EDUUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:46.997912686+07:00",
+      "symbol": "EGLDUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:47.059440717+07:00",
+      "symbol": "EIGENUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:47.122938739+07:00",
+      "symbol": "ENAUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:47.193713541+07:00",
+      "symbol": "ENJUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:47.255149603+07:00",
+      "symbol": "ENSOUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:47.330662426+07:00",
+      "symbol": "ENSUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:47.393060177+07:00",
+      "symbol": "EPICUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:47.454093043+07:00",
+      "symbol": "EPTUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:47.520881+07:00",
+      "symbol": "ERAUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:47.589517332+07:00",
+      "symbol": "ESPORTSUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:47.662853175+07:00",
+      "symbol": "ESUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:47.734909409+07:00",
+      "symbol": "ETCUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:47.80584367+07:00",
+      "symbol": "ETHBTCUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:47.867203425+07:00",
+      "symbol": "ETHFIUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:47.932426298+07:00",
+      "symbol": "ETHUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:48.002111173+07:00",
+      "symbol": "EULUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:48.066948882+07:00",
+      "symbol": "EVAAUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:48.129198114+07:00",
+      "symbol": "FARTCOINUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:48.197495009+07:00",
+      "symbol": "FFUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:48.25811909+07:00",
+      "symbol": "FIDAUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:48.322305062+07:00",
+      "symbol": "FILUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:48.386017607+07:00",
+      "symbol": "FIOUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:48.462153432+07:00",
+      "symbol": "FLOCKUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:48.53040384+07:00",
+      "symbol": "FLOWUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:48.601602523+07:00",
+      "symbol": "FLRUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:48.66838834+07:00",
+      "symbol": "FLUIDUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:48.73556588+07:00",
+      "symbol": "FLUXUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:48.806359255+07:00",
+      "symbol": "FOLKSUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:48.873073933+07:00",
+      "symbol": "FORMUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:48.934343799+07:00",
+      "symbol": "FUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:48.996492506+07:00",
+      "symbol": "FWOGUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:49.06955961+07:00",
+      "symbol": "GALAUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:49.130967682+07:00",
+      "symbol": "GASUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:49.195368509+07:00",
+      "symbol": "GIGAUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:49.263318829+07:00",
+      "symbol": "GIGGLEUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:49.325951444+07:00",
+      "symbol": "GLMUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:49.386574982+07:00",
+      "symbol": "GMTUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:49.453747582+07:00",
+      "symbol": "GMXUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:49.517335681+07:00",
+      "symbol": "GNOUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:49.5847458+07:00",
+      "symbol": "GOATUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:49.655975569+07:00",
+      "symbol": "GODSUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:49.728582524+07:00",
+      "symbol": "GPSUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:49.796462863+07:00",
+      "symbol": "GRASSUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:49.863961111+07:00",
+      "symbol": "GRIFFAINUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:49.950148051+07:00",
+      "symbol": "GRTUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:50.03553608+07:00",
+      "symbol": "GUNUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:50.104568325+07:00",
+      "symbol": "HAEDALUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:50.167609932+07:00",
+      "symbol": "HANAUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:50.233390753+07:00",
+      "symbol": "HBARUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:50.296590959+07:00",
+      "symbol": "HEIUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:50.361608123+07:00",
+      "symbol": "HEMIUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:50.422217083+07:00",
+      "symbol": "HFTUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:50.487679101+07:00",
+      "symbol": "HIGHUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:50.556113398+07:00",
+      "symbol": "HIPPOUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:50.615995301+07:00",
+      "symbol": "HIVEUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:50.685356476+07:00",
+      "symbol": "HMSTRUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:50.756350956+07:00",
+      "symbol": "HNTUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:50.823247177+07:00",
+      "symbol": "HOLOUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:50.887956289+07:00",
+      "symbol": "HOMEUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:50.951948828+07:00",
+      "symbol": "HOOKUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:51.014639196+07:00",
+      "symbol": "HPOS10IUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:51.07558543+07:00",
+      "symbol": "HUMAUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:51.137835453+07:00",
+      "symbol": "HUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:51.200338004+07:00",
+      "symbol": "HYPERUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:51.264056871+07:00",
+      "symbol": "HYPEUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:51.330546412+07:00",
+      "symbol": "ICNTUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:51.415463807+07:00",
+      "symbol": "ICPUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:51.487682777+07:00",
+      "symbol": "ICXUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:51.5490458+07:00",
+      "symbol": "IDEXUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:51.608277376+07:00",
+      "symbol": "IDUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:51.67518059+07:00",
+      "symbol": "ILVUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:51.742958239+07:00",
+      "symbol": "IMXUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:51.804085431+07:00",
+      "symbol": "INITUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:51.876993446+07:00",
+      "symbol": "INJUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:51.954877156+07:00",
+      "symbol": "INUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:52.019613636+07:00",
+      "symbol": "IOSTUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:52.096605168+07:00",
+      "symbol": "IOTAUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:52.174440746+07:00",
+      "symbol": "IOTXUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:52.245424455+07:00",
+      "symbol": "IOUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:52.307128875+07:00",
+      "symbol": "IPUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:52.36747523+07:00",
+      "symbol": "IRYSUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:52.429339248+07:00",
+      "symbol": "JASMYUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:52.491110985+07:00",
+      "symbol": "JCTUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:52.566806273+07:00",
+      "symbol": "JELLYJELLYUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:52.628891745+07:00",
+      "symbol": "JSTUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:52.700002135+07:00",
+      "symbol": "JTOUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:52.770471418+07:00",
+      "symbol": "JUPUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:52.830996715+07:00",
+      "symbol": "KAIAUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:52.903000817+07:00",
+      "symbol": "KAITOUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:52.964344983+07:00",
+      "symbol": "KASUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:53.029987258+07:00",
+      "symbol": "KAVAUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:53.098214793+07:00",
+      "symbol": "KERNELUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:53.167744661+07:00",
+      "symbol": "KGENUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:53.228293987+07:00",
+      "symbol": "KITEUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:53.29785044+07:00",
+      "symbol": "KMNOUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:53.362508927+07:00",
+      "symbol": "KNCUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:53.430016127+07:00",
+      "symbol": "KSMUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:53.492012502+07:00",
+      "symbol": "L3USDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:53.553721606+07:00",
+      "symbol": "LABUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:53.620796513+07:00",
+      "symbol": "LAUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:53.706837129+07:00",
+      "symbol": "LDOUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:53.794693453+07:00",
+      "symbol": "LIGHTUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:53.858950704+07:00",
+      "symbol": "LINEAUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:53.927325123+07:00",
+      "symbol": "LINKUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:53.991204388+07:00",
+      "symbol": "LISTAUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:54.057168917+07:00",
+      "symbol": "LITUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:54.120021195+07:00",
+      "symbol": "LPTUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:54.190474426+07:00",
+      "symbol": "LQTYUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:54.261083683+07:00",
+      "symbol": "LRCUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:54.333980669+07:00",
+      "symbol": "LSKUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:54.400691155+07:00",
+      "symbol": "LTCUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:54.46375791+07:00",
+      "symbol": "LUMIAUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:54.529191821+07:00",
+      "symbol": "LUNA2USDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:54.596079679+07:00",
+      "symbol": "LYNUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:54.6572829+07:00",
+      "symbol": "MAGICUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:54.722381676+07:00",
+      "symbol": "MAGMAUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:54.784288373+07:00",
+      "symbol": "MANAUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:54.847049053+07:00",
+      "symbol": "MANTAUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:54.919896783+07:00",
+      "symbol": "MASKUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:54.988071968+07:00",
+      "symbol": "MAVIAUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:55.05008783+07:00",
+      "symbol": "MAVUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:55.110059465+07:00",
+      "symbol": "MBOXUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:55.174404472+07:00",
+      "symbol": "MELANIAUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:55.242623746+07:00",
+      "symbol": "MEMEUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:55.312897289+07:00",
+      "symbol": "MERLUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:55.377056159+07:00",
+      "symbol": "METISUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:55.450883879+07:00",
+      "symbol": "METUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:55.510852771+07:00",
+      "symbol": "MEUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:55.572322037+07:00",
+      "symbol": "MEWUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:55.635602925+07:00",
+      "symbol": "MINAUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:55.698102598+07:00",
+      "symbol": "MIRAUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:55.769926347+07:00",
+      "symbol": "MITOUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:55.833904246+07:00",
+      "symbol": "MLNUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:55.895149541+07:00",
+      "symbol": "MMTUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:55.955619821+07:00",
+      "symbol": "MNTUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:56.026703775+07:00",
+      "symbol": "MOCAUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:56.096884467+07:00",
+      "symbol": "MONUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:56.164885131+07:00",
+      "symbol": "MOODENGUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:56.241745182+07:00",
+      "symbol": "MORPHOUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:56.306725934+07:00",
+      "symbol": "MOVEUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:56.367748316+07:00",
+      "symbol": "MOVRUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:56.428277654+07:00",
+      "symbol": "MTLUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:56.488967224+07:00",
+      "symbol": "MUBARAKUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:56.557002025+07:00",
+      "symbol": "MUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:56.619491493+07:00",
+      "symbol": "MYXUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:56.690859535+07:00",
+      "symbol": "NAORISUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:56.75226573+07:00",
+      "symbol": "NEARUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:56.813818028+07:00",
+      "symbol": "NEOUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:56.874484958+07:00",
+      "symbol": "NEWTUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:56.93573854+07:00",
+      "symbol": "NFPUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:57.002163013+07:00",
+      "symbol": "NIGHTUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:57.067721303+07:00",
+      "symbol": "NILUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:57.12800339+07:00",
+      "symbol": "NKNUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:57.200341961+07:00",
+      "symbol": "NMRUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:57.262450614+07:00",
+      "symbol": "NOMUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:57.32360823+07:00",
+      "symbol": "NOTUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:57.384563478+07:00",
+      "symbol": "NSUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:57.446298501+07:00",
+      "symbol": "NTRNUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:57.518911722+07:00",
+      "symbol": "NXPCUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:57.590265849+07:00",
+      "symbol": "OBTUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:57.651147782+07:00",
+      "symbol": "OGNUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:57.71961058+07:00",
+      "symbol": "OGUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:57.780734147+07:00",
+      "symbol": "OKBUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:57.840810796+07:00",
+      "symbol": "OLUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:57.901475537+07:00",
+      "symbol": "OMUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:57.966445818+07:00",
+      "symbol": "ONDOUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:58.032316207+07:00",
+      "symbol": "ONEUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:58.100094005+07:00",
+      "symbol": "ONGUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:58.16738517+07:00",
+      "symbol": "ONTUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:58.230149986+07:00",
+      "symbol": "OPENUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:58.290935923+07:00",
+      "symbol": "OPUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:58.359982967+07:00",
+      "symbol": "ORBSUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:58.420648399+07:00",
+      "symbol": "ORCAUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:58.498267436+07:00",
+      "symbol": "ORDERUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:58.56663495+07:00",
+      "symbol": "ORDIUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:58.626160262+07:00",
+      "symbol": "OXTUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:58.710535203+07:00",
+      "symbol": "PARTIUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:58.776359671+07:00",
+      "symbol": "PAXGUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:58.83663378+07:00",
+      "symbol": "PEAQUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:58.907288108+07:00",
+      "symbol": "PENDLEUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:58.969039633+07:00",
+      "symbol": "PENGUUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:59.029362934+07:00",
+      "symbol": "PEOPLEUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:59.090509967+07:00",
+      "symbol": "PHAUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:59.162617739+07:00",
+      "symbol": "PHBUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:59.22844913+07:00",
+      "symbol": "PIEVERSEUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:59.294238007+07:00",
+      "symbol": "PIPPINUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:59.360106429+07:00",
+      "symbol": "PIXELUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:59.420789597+07:00",
+      "symbol": "PLUMEUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:59.48714881+07:00",
+      "symbol": "PNUTUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:59.555791009+07:00",
+      "symbol": "POLUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:59.617452615+07:00",
+      "symbol": "POLYXUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:59.686420703+07:00",
+      "symbol": "PONKEUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:59.747403695+07:00",
+      "symbol": "POPCATUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:59.807101141+07:00",
+      "symbol": "PORTALUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:59.878776724+07:00",
+      "symbol": "POWERUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:16:59.938721499+07:00",
+      "symbol": "POWRUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:00.027491462+07:00",
+      "symbol": "PROMPTUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:00.089897819+07:00",
+      "symbol": "PROMUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:00.15673885+07:00",
+      "symbol": "PROVEUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:00.219168322+07:00",
+      "symbol": "PTBUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:00.287244072+07:00",
+      "symbol": "PUFFERUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:00.349343883+07:00",
+      "symbol": "PUMPBTCUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:00.409310573+07:00",
+      "symbol": "PUMPFUNUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:00.480482679+07:00",
+      "symbol": "PUNDIXUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:00.549594377+07:00",
+      "symbol": "PYRUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:00.618339357+07:00",
+      "symbol": "PYTHUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:00.682056226+07:00",
+      "symbol": "QNTUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:00.743241185+07:00",
+      "symbol": "QTUMUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:00.808525624+07:00",
+      "symbol": "QUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:00.869995453+07:00",
+      "symbol": "RAREUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:00.938553868+07:00",
+      "symbol": "RAVEUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:01.000175184+07:00",
+      "symbol": "RAYDIUMUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:01.068588681+07:00",
+      "symbol": "RDNTUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:01.131256467+07:00",
+      "symbol": "RECALLUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:01.195851756+07:00",
+      "symbol": "REDUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:01.256709234+07:00",
+      "symbol": "RENDERUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:01.317571548+07:00",
+      "symbol": "REQUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:01.378066158+07:00",
+      "symbol": "RESOLVUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:01.438228839+07:00",
+      "symbol": "REZUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:01.505160821+07:00",
+      "symbol": "RIVERUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:01.565107519+07:00",
+      "symbol": "RLCUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:01.625629373+07:00",
+      "symbol": "RLSUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:01.691463642+07:00",
+      "symbol": "RLUSDUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:01.760689706+07:00",
+      "symbol": "ROAMUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:01.829810311+07:00",
+      "symbol": "RONINUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:01.890808289+07:00",
+      "symbol": "ROSEUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:01.959540729+07:00",
+      "symbol": "RPLUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:02.026588732+07:00",
+      "symbol": "RSRUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:02.097148096+07:00",
+      "symbol": "RUNEUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:02.157357088+07:00",
+      "symbol": "RVNUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:02.221025479+07:00",
+      "symbol": "SAFEUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:02.286155139+07:00",
+      "symbol": "SAGAUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:02.346230283+07:00",
+      "symbol": "SAHARAUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:02.407543727+07:00",
+      "symbol": "SANDUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:02.478779631+07:00",
+      "symbol": "SAPIENUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:02.539258658+07:00",
+      "symbol": "SAROSUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:02.602137353+07:00",
+      "symbol": "SCRTUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:02.665080925+07:00",
+      "symbol": "SCRUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:02.733001143+07:00",
+      "symbol": "SCUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:02.807883591+07:00",
+      "symbol": "SDUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:02.877949054+07:00",
+      "symbol": "SEIUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:02.944101692+07:00",
+      "symbol": "SFPUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:03.005615839+07:00",
+      "symbol": "SHELLUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:03.06629858+07:00",
+      "symbol": "SHIB1000USDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:03.134259772+07:00",
+      "symbol": "SIGNUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:03.196880363+07:00",
+      "symbol": "SIRENUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:03.257655418+07:00",
+      "symbol": "SKLUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:03.321730798+07:00",
+      "symbol": "SKYAIUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:03.391326785+07:00",
+      "symbol": "SKYUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:03.453030556+07:00",
+      "symbol": "SLPUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:03.518637449+07:00",
+      "symbol": "SNTUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:03.586597654+07:00",
+      "symbol": "SNXUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:03.648332057+07:00",
+      "symbol": "SOLAYERUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:03.713442176+07:00",
+      "symbol": "SOLUSDT",
+      "reason": "insufficient candles"
+    },
+    {
+      "time": "2026-01-02T18:17:03.774105345+07:00",
+      "symbol": "SOLVUSDT",
+      "reason": "insufficient candles"
+    }
+  ],
+  "startTime": "2025-01-02T00:00:00Z",
+  "endTime": "2025-02-02T00:00:00Z",
+  "duration": 2678400000000000
+}
