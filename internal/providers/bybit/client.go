@@ -126,10 +126,14 @@ func (c *Client) doRequestWithRetry(req *http.Request) (*http.Response, error) {
 	return nil, fmt.Errorf("after %d attempts: %w", maxRetries, err)
 }
 
-func (c *Client) GetCandles(symbol, interval string, limit int) ([]types.Candle, error) {
+func (c *Client) GetCandles(symbol, interval string, limit int, endTime int64) ([]types.Candle, error) {
 	bybitInterval := mapIntervalToBybit(interval)
 	url := fmt.Sprintf("%s/v5/market/kline?category=linear&symbol=%s&interval=%s&limit=%d",
 		c.config.BaseURL, symbol, bybitInterval, limit)
+
+	if endTime > 0 {
+		url = fmt.Sprintf("%s&end=%d", url, endTime)
+	}
 
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {

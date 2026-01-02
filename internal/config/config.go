@@ -33,6 +33,7 @@ type BotConfig struct {
 	EnabledIntervals []string      `mapstructure:"enabledIntervals"`
 	Frontend         string        `mapstructure:"frontend"`
 	RunOnce          bool          `mapstructure:"runOnce"`
+	TargetTime       int64         `mapstructure:"targetTime"`
 }
 
 func Load(configFile string) *Config {

@@ -44,7 +44,7 @@ type Signal struct {
 
 type MarketDataProvider interface {
 	GetSymbols() ([]string, error)
-	GetCandles(symbol, interval string, limit int) ([]Candle, error)
+	GetCandles(symbol, interval string, limit int, endTime int64) ([]Candle, error)
 	GetTickerInfo(symbol string) (TickerInfo, error)
 }
 

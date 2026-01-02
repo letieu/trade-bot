@@ -18,7 +18,7 @@ func (m *MockProvider) GetSymbols() ([]string, error) {
 	return []string{"BTCUSDT"}, nil
 }
 
-func (m *MockProvider) GetCandles(symbol, interval string, limit int) ([]types.Candle, error) {
+func (m *MockProvider) GetCandles(symbol, interval string, limit int, endTime int64) ([]types.Candle, error) {
 	return m.candles, nil
 }
 

@@ -164,7 +164,7 @@ func (b *Bot) scanInterval(symbols []string, interval string) []types.Signal {
 
 func (b *Bot) checkSymbol(symbol, interval string) *types.Signal {
 	requiredCandles := b.strategy.GetRequiredCandles()
-	candles, err := b.provider.GetCandles(symbol, interval, requiredCandles)
+	candles, err := b.provider.GetCandles(symbol, interval, requiredCandles, b.config.Bot.TargetTime)
 	if err != nil {
 		log.Printf("Failed to get candles for %s: %v", symbol, err)
 		return nil
