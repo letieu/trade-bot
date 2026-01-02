@@ -12,7 +12,6 @@ type Config struct {
 	Telegram TelegramConfig `mapstructure:"telegram"`
 	Bybit    BybitConfig    `mapstructure:"bybit"`
 	Bot      BotConfig      `mapstructure:"bot"`
-	Backtest BacktestConfig `mapstructure:"backtest"`
 }
 
 type TelegramConfig struct {
@@ -34,14 +33,6 @@ type BotConfig struct {
 	EnabledIntervals []string      `mapstructure:"enabledIntervals"`
 	Frontend         string        `mapstructure:"frontend"`
 	RunOnce          bool          `mapstructure:"runOnce"`
-}
-
-type BacktestConfig struct {
-	StartTime   string `mapstructure:"startTime"`
-	EndTime     string `mapstructure:"endTime"`
-	DataPath    string `mapstructure:"dataPath"`
-	SaveResults bool   `mapstructure:"saveResults"`
-	ResultsPath string `mapstructure:"resultsPath"`
 }
 
 func Load(configFile string) *Config {
@@ -96,18 +87,4 @@ func Load(configFile string) *Config {
 
 func (c *Config) SaveToFile(filePath string) error {
 	return viper.WriteConfigAs(filePath)
-}
-
-func (c *Config) GetBacktestTimes() (startTime, endTime time.Time, err error) {
-	startTime, err = time.Parse(time.RFC3339, c.Backtest.StartTime)
-	if err != nil {
-		return time.Time{}, time.Time{}, fmt.Errorf("failed to parse startTime: %w", err)
-	}
-
-	endTime, err = time.Parse(time.RFC3339, c.Backtest.EndTime)
-	if err != nil {
-		return time.Time{}, time.Time{}, fmt.Errorf("failed to parse endTime: %w", err)
-	}
-
-	return startTime, endTime, nil
 }

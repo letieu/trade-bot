@@ -49,8 +49,8 @@ func (b *Bot) formatSignalsMessage(signals []types.Signal) string {
 			colorCode = "\033[91m" // Red
 		}
 
-		line := fmt.Sprintf("%s[%s] %s %-7s\033[0m | RSI: %.2f | EMA20: %.2f | Vol: %.1f",
-			colorCode, signal.Symbol, trendIcon, strings.ToUpper(signal.Trend), signal.RSI, signal.EMA, signal.Volume)
+		line := fmt.Sprintf("%s[%s] %s\033[0m",
+			colorCode, signal.Symbol, trendIcon)
 
 		builder.WriteString(line)
 		builder.WriteString("\n")

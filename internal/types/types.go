@@ -67,29 +67,3 @@ type NotificationSender interface {
 	SendSignals(signals []Signal) error
 	SendMessage(message string) error
 }
-
-type Backtester interface {
-	RunTest(symbols []string, matcher PatternMatcher, interval string, startTime, endTime time.Time) (*BacktestResult, error)
-}
-
-type BacktestResult struct {
-	TotalSignals    int             `json:"totalSignals"`
-	SignalsBySymbol map[string]int  `json:"signalsBySymbol"`
-	SignalsByTime   []TimeSignal    `json:"signalsByTime"`
-	MissingSignals  []MissingSignal `json:"missingSignals"`
-	StartTime       time.Time       `json:"startTime"`
-	EndTime         time.Time       `json:"endTime"`
-	Duration        time.Duration   `json:"duration"`
-}
-
-type TimeSignal struct {
-	Time    time.Time `json:"time"`
-	Symbol  string    `json:"symbol"`
-	Pattern string    `json:"pattern"`
-}
-
-type MissingSignal struct {
-	Time   time.Time `json:"time"`
-	Symbol string    `json:"symbol"`
-	Reason string    `json:"reason"`
-}

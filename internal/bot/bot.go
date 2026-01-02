@@ -53,6 +53,16 @@ func NewBot(cfg *config.Config) *Bot {
 	}
 }
 
+// NewBotWithDeps allows creating a bot with injected dependencies (useful for testing)
+func NewBotWithDeps(cfg *config.Config, provider types.MarketDataProvider, sender types.NotificationSender) *Bot {
+	return &Bot{
+		config:   cfg,
+		provider: provider,
+		sender:   sender,
+		strategy: strategies.NewThreeCandleReversal(),
+	}
+}
+
 func (b *Bot) Start() error {
 	log.Printf("Starting trading bot with strategy: %s", b.strategy.GetName())
 
