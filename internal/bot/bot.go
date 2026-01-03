@@ -15,10 +15,10 @@ import (
 )
 
 type Bot struct {
-	config   *config.Config
-	provider types.MarketDataProvider
-	sender   types.NotificationSender
-	strategy types.PatternMatcher
+	config     *config.Config
+	provider   types.MarketDataProvider
+	sender     types.NotificationSender
+	strategies []types.PatternMatcher
 }
 
 func NewBot(cfg *config.Config) *Bot {
@@ -43,28 +43,40 @@ func NewBot(cfg *config.Config) *Bot {
 		}
 	}
 
-	strategy := strategies.NewThreeCandleReversal()
+	// Initialize multiple strategies
+	strategies := []types.PatternMatcher{
+		strategies.NewThreeCandleReversal(),
+		strategies.NewConsecutiveCandles(3),
+	}
 
 	return &Bot{
-		config:   cfg,
-		provider: bybitClient,
-		sender:   sender,
-		strategy: strategy,
+		config:     cfg,
+		provider:   bybitClient,
+		sender:     sender,
+		strategies: strategies,
 	}
 }
 
 // NewBotWithDeps allows creating a bot with injected dependencies (useful for testing)
 func NewBotWithDeps(cfg *config.Config, provider types.MarketDataProvider, sender types.NotificationSender) *Bot {
+	strategies := []types.PatternMatcher{
+		strategies.NewThreeCandleReversal(),
+		strategies.NewConsecutiveCandles(3),
+	}
 	return &Bot{
-		config:   cfg,
-		provider: provider,
-		sender:   sender,
-		strategy: strategies.NewThreeCandleReversal(),
+		config:     cfg,
+		provider:   provider,
+		sender:     sender,
+		strategies: strategies,
 	}
 }
 
 func (b *Bot) Start() error {
-	log.Printf("Starting trading bot with strategy: %s", b.strategy.GetName())
+	strategyNames := make([]string, len(b.strategies))
+	for i, s := range b.strategies {
+		strategyNames[i] = s.GetName()
+	}
+	log.Printf("Starting trading bot with %d strategies: %v", len(b.strategies), strategyNames)
 
 	if b.config.Bot.RunOnce {
 		log.Println("Running in one-time mode")
@@ -193,9 +205,11 @@ func (b *Bot) scanInterval(symbols []string, interval string) []types.Signal {
 				semaphore <- struct{}{}
 				defer func() { <-semaphore }()
 
-				if signal := b.checkSymbol(sym, interval); signal != nil {
+				// Check all strategies for this symbol
+				symbolSignals := b.checkSymbol(sym, interval)
+				if len(symbolSignals) > 0 {
 					mu.Lock()
-					signals = append(signals, *signal)
+					signals = append(signals, symbolSignals...)
 					mu.Unlock()
 				}
 			}(symbol)
@@ -208,9 +222,16 @@ func (b *Bot) scanInterval(symbols []string, interval string) []types.Signal {
 	return signals
 }
 
-func (b *Bot) checkSymbol(symbol, interval string) *types.Signal {
-	requiredCandles := b.strategy.GetRequiredCandles()
-	candles, err := b.provider.GetCandles(symbol, interval, requiredCandles, b.config.Bot.TargetTime)
+func (b *Bot) checkSymbol(symbol, interval string) []types.Signal {
+	// Get the maximum required candles across all strategies
+	maxRequired := 0
+	for _, strategy := range b.strategies {
+		if req := strategy.GetRequiredCandles(); req > maxRequired {
+			maxRequired = req
+		}
+	}
+
+	candles, err := b.provider.GetCandles(symbol, interval, maxRequired, b.config.Bot.TargetTime)
 	if err != nil {
 		log.Printf("Failed to get candles for %s: %v", symbol, err)
 		return nil
@@ -226,42 +247,51 @@ func (b *Bot) checkSymbol(symbol, interval string) *types.Signal {
 		return nil
 	}
 
-	matched, err := b.strategy.Match(candles)
-	if err != nil {
-		log.Printf("Error matching pattern for %s: %v", symbol, err)
-		return nil
+	var signals []types.Signal
+
+	// Check all strategies
+	for _, strategy := range b.strategies {
+		matched, err := strategy.Match(candles)
+		if err != nil {
+			log.Printf("Error matching pattern %s for %s: %v", strategy.GetName(), symbol, err)
+			continue
+		}
+
+		if !matched {
+			continue
+		}
+
+		lastCandles := candles[len(candles)-4:]
+		lastCandle := candles[len(candles)-1]
+
+		// Get metadata from strategy (e.g., consecutive count)
+		metadata := strategy.GetMetadata(candles)
+		consecutiveCount := 0
+		if count, ok := metadata["consecutive_count"].(int); ok {
+			consecutiveCount = count
+		}
+
+		signal := types.Signal{
+			Symbol:           symbol,
+			Interval:         interval,
+			Pattern:          strategy.GetName(),
+			Trend:            "bullish",
+			Price:            lastCandle.Close,
+			RSI:              0,
+			EMA:              0,
+			Volume:           lastCandle.Volume,
+			Timestamp:        time.Now(),
+			Candles:          lastCandles,
+			ConsecutiveCount: consecutiveCount,
+		}
+
+		if lastCandles[len(lastCandles)-1].Color() == types.ColorRed {
+			signal.Trend = "bearish"
+		}
+
+		log.Printf("Signal found: %s %s %s", symbol, interval, signal.Pattern)
+		signals = append(signals, signal)
 	}
 
-	if !matched {
-		// log.Printf("Skip %s", symbol)
-		return nil
-	}
-
-	tickerInfo, err := b.provider.GetTickerInfo(symbol)
-	if err != nil {
-		log.Printf("Failed to get ticker info for %s: %v", symbol, err)
-	}
-
-	lastCandles := candles[len(candles)-4:]
-
-	signal := types.Signal{
-		Symbol:    symbol,
-		Interval:  interval,
-		Pattern:   b.strategy.GetName(),
-		Trend:     "bullish",
-		Price:     tickerInfo.LastPrice,
-		RSI:       0,
-		EMA:       0,
-		Volume:    tickerInfo.Volume24h,
-		Timestamp: time.Now(),
-		Candles:   lastCandles,
-	}
-
-	if lastCandles[len(lastCandles)-1].Color() == types.ColorRed {
-		signal.Trend = "bearish"
-	}
-
-	log.Printf("Signal found: %s %s %s", symbol, interval, signal.Pattern)
-
-	return &signal
+	return signals
 }

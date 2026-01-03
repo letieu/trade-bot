@@ -22,13 +22,6 @@ func (m *MockProvider) GetCandles(symbol, interval string, limit int, endTime in
 	return m.candles, nil
 }
 
-func (m *MockProvider) GetTickerInfo(symbol string) (types.TickerInfo, error) {
-	return types.TickerInfo{
-		Symbol:    symbol,
-		LastPrice: 50000,
-	}, nil
-}
-
 // MockSender implements types.NotificationSender
 type MockSender struct {
 	Signals []types.Signal

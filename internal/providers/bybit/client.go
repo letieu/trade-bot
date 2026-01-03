@@ -47,21 +47,6 @@ type KlineResponse struct {
 	} `json:"result"`
 }
 
-type TickersResponse struct {
-	RetCode int `json:"retCode"`
-	Result  struct {
-		List []Ticker `json:"list"`
-	} `json:"result"`
-}
-
-type Ticker struct {
-	Symbol       string `json:"symbol"`
-	LastPrice    string `json:"lastPrice"`
-	PrevPrice24h string `json:"prevPrice24h"`
-	Volume24h    string `json:"volume24h"`
-	Turnover24h  string `json:"turnover24h"`
-}
-
 func NewClient(cfg *config.BybitConfig) *Client {
 	return &Client{
 		config: cfg,
@@ -300,72 +285,3 @@ func mapIntervalToBybit(interval string) string {
 	}
 }
 
-func (c *Client) GetTickerInfo(symbol string) (types.TickerInfo, error) {
-	url := fmt.Sprintf("%s/v5/market/tickers?category=linear&symbol=%s", c.config.BaseURL, symbol)
-
-	req, err := http.NewRequest("GET", url, nil)
-	if err != nil {
-		return types.TickerInfo{}, fmt.Errorf("failed to create request: %w", err)
-	}
-
-	for key, value := range c.config.Headers {
-		req.Header.Set(key, value)
-	}
-
-	resp, err := c.client.Do(req)
-	if err != nil {
-		return types.TickerInfo{}, fmt.Errorf("failed to execute request: %w", err)
-	}
-	defer resp.Body.Close()
-
-	body, err := io.ReadAll(resp.Body)
-	if err != nil {
-		return types.TickerInfo{}, fmt.Errorf("failed to read response body: %w", err)
-	}
-
-	var tickersResp TickersResponse
-	if err := json.Unmarshal(body, &tickersResp); err != nil {
-		return types.TickerInfo{}, fmt.Errorf("failed to unmarshal response: %w", err)
-	}
-
-	if tickersResp.RetCode != 0 {
-		return types.TickerInfo{}, fmt.Errorf("API error: retCode=%d", tickersResp.RetCode)
-	}
-
-	if len(tickersResp.Result.List) == 0 {
-		return types.TickerInfo{}, fmt.Errorf("no ticker data found for symbol %s", symbol)
-	}
-
-	ticker := tickersResp.Result.List[0]
-
-	lastPrice, err := strconv.ParseFloat(ticker.LastPrice, 64)
-	if err != nil {
-		return types.TickerInfo{}, fmt.Errorf("failed to parse last price: %w", err)
-	}
-
-	prevPrice24h, err := strconv.ParseFloat(ticker.PrevPrice24h, 64)
-	if err != nil {
-		log.Printf("Failed to parse prev price 24h for %s: %v", symbol, err)
-		prevPrice24h = 0
-	}
-
-	volume24h, err := strconv.ParseFloat(ticker.Volume24h, 64)
-	if err != nil {
-		log.Printf("Failed to parse volume 24h for %s: %v", symbol, err)
-		volume24h = 0
-	}
-
-	turnover24h, err := strconv.ParseFloat(ticker.Turnover24h, 64)
-	if err != nil {
-		log.Printf("Failed to parse turnover 24h for %s: %v", symbol, err)
-		turnover24h = 0
-	}
-
-	return types.TickerInfo{
-		Symbol:       ticker.Symbol,
-		LastPrice:    lastPrice,
-		PrevPrice24h: prevPrice24h,
-		Volume24h:    volume24h,
-		Turnover24h:  turnover24h,
-	}, nil
-}

@@ -5,6 +5,7 @@ import (
 	"sort"
 	"strconv"
 	"strings"
+	"time"
 
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 	"github.com/letieu/trade-bot/internal/config"
@@ -35,36 +36,137 @@ func (b *Bot) SendSignals(signals []types.Signal) error {
 		return nil
 	}
 
-	// Sort signals: Bullish (green) first, then Bearish (red)
-	sort.Slice(signals, func(i, j int) bool {
-		isIBullish := signals[i].Trend != "bearish"
-		isJBullish := signals[j].Trend != "bearish"
+	// Group signals by pattern and interval
+	type groupKey struct {
+		pattern  string
+		interval string
+	}
+	groups := make(map[groupKey][]types.Signal)
 
-		if isIBullish != isJBullish {
-			return isIBullish
+	for _, signal := range signals {
+		key := groupKey{pattern: signal.Pattern, interval: signal.Interval}
+		groups[key] = append(groups[key], signal)
+	}
+
+	// Sort groups by pattern first, then by interval
+	// This ensures messages from same strategy are sent together
+	type sortableGroup struct {
+		key     groupKey
+		signals []types.Signal
+	}
+	var sortedGroups []sortableGroup
+	for key, sigs := range groups {
+		sortedGroups = append(sortedGroups, sortableGroup{key: key, signals: sigs})
+	}
+
+	// Sort: by pattern name first, then by interval
+	sort.Slice(sortedGroups, func(i, j int) bool {
+		if sortedGroups[i].key.pattern != sortedGroups[j].key.pattern {
+			return sortedGroups[i].key.pattern < sortedGroups[j].key.pattern
 		}
-		return signals[i].Symbol < signals[j].Symbol
+		return sortedGroups[i].key.interval < sortedGroups[j].key.interval
 	})
 
-	// Split into chunks to avoid Telegram message limit (4096 chars)
-	// A safe batch size is around 50 signals per message
-	batchSize := 50
-	totalChunks := (len(signals) + batchSize - 1) / batchSize
-
-	for i := 0; i < len(signals); i += batchSize {
-		end := i + batchSize
-		if end > len(signals) {
-			end = len(signals)
+	// Send messages for each group (potentially chunked)
+	for _, group := range sortedGroups {
+		if err := b.sendGroupedSignals(group.key.pattern, group.key.interval, group.signals); err != nil {
+			return err
 		}
+	}
 
-		currentChunk := (i / batchSize) + 1
-		batch := signals[i:end]
-		message := b.formatSignalsMessage(batch, currentChunk, totalChunks)
+	return nil
+}
+
+type symbolInfo struct {
+	symbol string
+	count  int
+}
+
+func (b *Bot) sendGroupedSignals(pattern, interval string, signals []types.Signal) error {
+	// Create a map to store symbol with its consecutive count
+	var bullish []symbolInfo
+	var bearish []symbolInfo
+
+	for _, signal := range signals {
+		info := symbolInfo{
+			symbol: signal.Symbol,
+			count:  signal.ConsecutiveCount,
+		}
+		if signal.Trend == "bearish" {
+			bearish = append(bearish, info)
+		} else {
+			bullish = append(bullish, info)
+		}
+	}
+
+	// Sort by count (descending), then alphabetically by symbol
+	sort.Slice(bullish, func(i, j int) bool {
+		if bullish[i].count != bullish[j].count {
+			return bullish[i].count > bullish[j].count
+		}
+		return bullish[i].symbol < bullish[j].symbol
+	})
+	sort.Slice(bearish, func(i, j int) bool {
+		if bearish[i].count != bearish[j].count {
+			return bearish[i].count > bearish[j].count
+		}
+		return bearish[i].symbol < bearish[j].symbol
+	})
+
+	// Calculate chunks based on message length (Telegram limit is 4096 chars)
+	// Estimate: each symbol ~30 chars with tags and count, header ~100 chars
+	// Safe limit: ~100 symbols per message to avoid hitting 4096 limit
+	maxSymbolsPerChunk := 100
+
+	totalSymbols := len(bullish) + len(bearish)
+	if totalSymbols <= maxSymbolsPerChunk {
+		// Single message
+		message := b.formatGroupedMessage(pattern, interval, bullish, bearish, 1, 1, signals[0].Timestamp)
+		return b.SendMessage(message)
+	}
+
+	// Need to chunk - split bullish and bearish separately
+	bullishChunks := chunkSymbolInfos(bullish, maxSymbolsPerChunk)
+	bearishChunks := chunkSymbolInfos(bearish, maxSymbolsPerChunk)
+
+	totalChunks := len(bullishChunks) + len(bearishChunks)
+	currentChunk := 0
+
+	// Send bullish chunks
+	for _, chunk := range bullishChunks {
+		currentChunk++
+		message := b.formatGroupedMessage(pattern, interval, chunk, nil, currentChunk, totalChunks, signals[0].Timestamp)
 		if err := b.SendMessage(message); err != nil {
 			return err
 		}
 	}
+
+	// Send bearish chunks
+	for _, chunk := range bearishChunks {
+		currentChunk++
+		message := b.formatGroupedMessage(pattern, interval, nil, chunk, currentChunk, totalChunks, signals[0].Timestamp)
+		if err := b.SendMessage(message); err != nil {
+			return err
+		}
+	}
+
 	return nil
+}
+
+func chunkSymbolInfos(infos []symbolInfo, chunkSize int) [][]symbolInfo {
+	if len(infos) == 0 {
+		return nil
+	}
+
+	var chunks [][]symbolInfo
+	for i := 0; i < len(infos); i += chunkSize {
+		end := i + chunkSize
+		if end > len(infos) {
+			end = len(infos)
+		}
+		chunks = append(chunks, infos[i:end])
+	}
+	return chunks
 }
 
 func (b *Bot) SendMessage(message string) error {
@@ -87,19 +189,12 @@ func (b *Bot) SendMessage(message string) error {
 	return nil
 }
 
-func (b *Bot) formatSignalsMessage(signals []types.Signal, currentChunk, totalChunks int) string {
-	if len(signals) == 0 {
-		return ""
-	}
-
+func (b *Bot) formatGroupedMessage(pattern, interval string, bullish, bearish []symbolInfo, currentChunk, totalChunks int, timestamp time.Time) string {
 	var builder strings.Builder
 
-	pattern := signals[0].Pattern
-	interval := signals[0].Interval
-	runTime := signals[0].Timestamp.Format("2006-01-02 15:04:05")
-
-	// Header
+	// Header - only show on first chunk
 	if currentChunk == 1 {
+		runTime := timestamp.Format("2006-01-02 15:04:05")
 		chunkInfo := ""
 		if totalChunks > 1 {
 			chunkInfo = fmt.Sprintf(" [%d/%d]", currentChunk, totalChunks)
@@ -107,26 +202,49 @@ func (b *Bot) formatSignalsMessage(signals []types.Signal, currentChunk, totalCh
 		builder.WriteString(fmt.Sprintf("📊 <b>%s</b> (%s)%s\n", pattern, interval, chunkInfo))
 		builder.WriteString(fmt.Sprintf("🕒 <code>%s</code>\n\n", runTime))
 	} else {
-		// Continuation header
-		builder.WriteString(fmt.Sprintf("... [%d/%d]\n\n", currentChunk, totalChunks))
+		// Continuation chunk - just show chunk number
+		builder.WriteString(fmt.Sprintf("[%d/%d]\n\n", currentChunk, totalChunks))
 	}
 
-	for _, signal := range signals {
-		icon := "🟢"
-		if signal.Trend == "bearish" {
-			icon = "🔴"
+	// Format bullish symbols - on same line with spaces
+	if len(bullish) > 0 {
+		builder.WriteString("🟢 ")
+		for i, info := range bullish {
+			if i > 0 {
+				builder.WriteString("  ")
+			}
+			if info.count > 0 {
+				// Show count for consecutive candles pattern
+				builder.WriteString(fmt.Sprintf("<code>%s</code>(%d)", info.symbol, info.count))
+			} else {
+				// No count for other patterns
+				builder.WriteString(fmt.Sprintf("<code>%s</code>", info.symbol))
+			}
 		}
-
-		// Format: 🟢 <a href="..."><b>BTCUSDT</b></a>
-		url := fmt.Sprintf("https://www.bybitglobal.com/trade/usdt/%s", signal.Symbol)
-		line := fmt.Sprintf("%s <a href=\"%s\"><b>%s</b></a>\n", icon, url, signal.Symbol)
-
-		builder.WriteString(line)
+		builder.WriteString("\n")
 	}
 
-	// Footer for non-last chunks
-	if currentChunk < totalChunks {
-		builder.WriteString("\n...")
+	// Add spacing between bullish and bearish
+	if len(bullish) > 0 && len(bearish) > 0 {
+		builder.WriteString("\n")
+	}
+
+	// Format bearish symbols - on same line with spaces
+	if len(bearish) > 0 {
+		builder.WriteString("🔴 ")
+		for i, info := range bearish {
+			if i > 0 {
+				builder.WriteString("  ")
+			}
+			if info.count > 0 {
+				// Show count for consecutive candles pattern
+				builder.WriteString(fmt.Sprintf("<code>%s</code>(%d)", info.symbol, info.count))
+			} else {
+				// No count for other patterns
+				builder.WriteString(fmt.Sprintf("<code>%s</code>", info.symbol))
+			}
+		}
+		builder.WriteString("\n")
 	}
 
 	return builder.String()

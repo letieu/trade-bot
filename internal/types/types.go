@@ -62,30 +62,22 @@ func (c *Candle) Color() CandleColor {
 }
 
 type Signal struct {
-	Symbol    string    `json:"symbol"`
-	Interval  string    `json:"interval"`
-	Pattern   string    `json:"pattern"`
-	Trend     string    `json:"trend"`
-	Price     float64   `json:"price"`
-	RSI       float64   `json:"rsi"`
-	EMA       float64   `json:"ema"`
-	Volume    float64   `json:"volume"`
-	Timestamp time.Time `json:"timestamp"`
-	Candles   []Candle  `json:"candles"`
+	Symbol          string    `json:"symbol"`
+	Interval        string    `json:"interval"`
+	Pattern         string    `json:"pattern"`
+	Trend           string    `json:"trend"`
+	Price           float64   `json:"price"`
+	RSI             float64   `json:"rsi"`
+	EMA             float64   `json:"ema"`
+	Volume          float64   `json:"volume"`
+	Timestamp       time.Time `json:"timestamp"`
+	Candles         []Candle  `json:"candles"`
+	ConsecutiveCount int      `json:"consecutive_count"` // For consecutive candles pattern
 }
 
 type MarketDataProvider interface {
 	GetSymbols() ([]string, error)
 	GetCandles(symbol, interval string, limit int, endTime int64) ([]Candle, error)
-	GetTickerInfo(symbol string) (TickerInfo, error)
-}
-
-type TickerInfo struct {
-	Symbol       string  `json:"symbol"`
-	LastPrice    float64 `json:"lastPrice"`
-	PrevPrice24h float64 `json:"prevPrice24h"`
-	Volume24h    float64 `json:"volume24h"`
-	Turnover24h  float64 `json:"turnover24h"`
 }
 
 type PatternMatcher interface {
@@ -93,6 +85,7 @@ type PatternMatcher interface {
 	GetName() string
 	GetDescription() string
 	GetRequiredCandles() int
+	GetMetadata(candles []Candle) map[string]interface{} // Get additional match data
 }
 
 type NotificationSender interface {

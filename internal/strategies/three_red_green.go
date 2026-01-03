@@ -35,7 +35,7 @@ func (s *ThreeCandleReversal) Match(candles []types.Candle) (bool, error) {
 }
 
 func (s *ThreeCandleReversal) GetName() string {
-	return "Three Candle Reversal 🕯️"
+	return "ĐẢO CHIỀU"
 }
 
 func (s *ThreeCandleReversal) GetDescription() string {
@@ -44,4 +44,8 @@ func (s *ThreeCandleReversal) GetDescription() string {
 
 func (s *ThreeCandleReversal) GetRequiredCandles() int {
 	return 5
+}
+
+func (s *ThreeCandleReversal) GetMetadata(candles []types.Candle) map[string]interface{} {
+	return map[string]interface{}{} // No additional metadata for this pattern
 }
