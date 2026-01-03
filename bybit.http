@@ -1,0 +1,28 @@
+### Bybit API Test File
+# Base URL for Bybit V5 API
+@baseUrl = https://api.bybit.com
+@symbol = BTCUSDT
+@interval = 60
+@limit = 10
+
+### 1. Get Instruments Info (Symbols)
+# Used in GetSymbols() to fetch available trading pairs
+GET {{baseUrl}}/v5/market/instruments-info?category=linear
+Content-Type: application/json
+
+### 2. Get Tickers
+# Used in GetTickerInfo() to fetch last price and volume
+GET {{baseUrl}}/v5/market/tickers?category=linear&symbol={{symbol}}
+Content-Type: application/json
+
+### 3. Get Kline (Candles)
+# Used in GetCandles() to fetch historical data
+# intervals: 1, 3, 5, 15, 30, 60 (1h), 120 (2h), 240 (4h), 360 (6h), 720 (12h), D (1d), W, M
+GET {{baseUrl}}/v5/market/kline?category=linear&symbol={{symbol}}&interval={{interval}}&limit={{limit}}
+Content-Type: application/json
+
+### 4. Get Kline with End Time (Optional)
+# Used when scanning for a specific historical target time
+@endTime = 1704214800000
+GET {{baseUrl}}/v5/market/kline?category=linear&symbol={{symbol}}&interval={{interval}}&limit={{limit}}&end={{endTime}}
+Content-Type: application/json

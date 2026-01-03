@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"strconv"
 	"strings"
+	"sync"
 	"time"
 
 	"github.com/letieu/trade-bot/internal/config"
@@ -15,14 +16,19 @@ import (
 )
 
 type Client struct {
-	config *config.BybitConfig
-	client *http.Client
+	config            *config.BybitConfig
+	client            *http.Client
+	cachedSymbols     []string
+	lastSymbolsUpdate time.Time
+	mu                sync.RWMutex
 }
 
 type InstrumentsResponse struct {
-	RetCode int `json:"retCode"`
+	RetCode int    `json:"retCode"`
+	RetMsg  string `json:"retMsg"`
 	Result  struct {
-		List []Instrument `json:"list"`
+		List           []Instrument `json:"list"`
+		NextPageCursor string       `json:"nextPageCursor"`
 	} `json:"result"`
 }
 
@@ -66,43 +72,76 @@ func NewClient(cfg *config.BybitConfig) *Client {
 }
 
 func (c *Client) GetSymbols() ([]string, error) {
-	url := fmt.Sprintf("%s/v5/market/instruments-info?category=linear", c.config.BaseURL)
-
-	req, err := http.NewRequest("GET", url, nil)
-	if err != nil {
-		return nil, fmt.Errorf("failed to create request: %w", err)
+	c.mu.RLock()
+	if len(c.cachedSymbols) > 0 && time.Since(c.lastSymbolsUpdate) < 24*time.Hour {
+		defer c.mu.RUnlock()
+		return c.cachedSymbols, nil
 	}
+	c.mu.RUnlock()
 
-	for key, value := range c.config.Headers {
-		req.Header.Set(key, value)
-	}
+	c.mu.Lock()
+	defer c.mu.Unlock()
 
-	resp, err := c.client.Do(req)
-	if err != nil {
-		return nil, fmt.Errorf("failed to execute request: %w", err)
-	}
-	defer resp.Body.Close()
-
-	body, err := io.ReadAll(resp.Body)
-	if err != nil {
-		return nil, fmt.Errorf("failed to read response body: %w", err)
-	}
-
-	var instrumentsResp InstrumentsResponse
-	if err := json.Unmarshal(body, &instrumentsResp); err != nil {
-		return nil, fmt.Errorf("failed to unmarshal response: %w", err)
-	}
-
-	if instrumentsResp.RetCode != 0 {
-		return nil, fmt.Errorf("API error: retCode=%d", instrumentsResp.RetCode)
+	// Double-check after acquiring write lock
+	if len(c.cachedSymbols) > 0 && time.Since(c.lastSymbolsUpdate) < 24*time.Hour {
+		return c.cachedSymbols, nil
 	}
 
 	var symbols []string
-	for _, instrument := range instrumentsResp.Result.List {
-		if instrument.Status == "Trading" && strings.HasSuffix(instrument.Symbol, "USDT") {
-			symbols = append(symbols, instrument.Symbol)
+	cursor := ""
+
+	for {
+		url := fmt.Sprintf("%s/v5/market/instruments-info?category=linear&limit=1000", c.config.BaseURL)
+		if cursor != "" {
+			url = fmt.Sprintf("%s&cursor=%s", url, cursor)
 		}
+
+		req, err := http.NewRequest("GET", url, nil)
+		if err != nil {
+			return nil, fmt.Errorf("failed to create request: %w", err)
+		}
+
+		for key, value := range c.config.Headers {
+			req.Header.Set(key, value)
+		}
+
+		resp, err := c.client.Do(req)
+		if err != nil {
+			return nil, fmt.Errorf("failed to execute request: %w", err)
+		}
+
+		body, err := io.ReadAll(resp.Body)
+		resp.Body.Close()
+		if err != nil {
+			return nil, fmt.Errorf("failed to read response body: %w", err)
+		}
+
+		var instrumentsResp InstrumentsResponse
+		if err := json.Unmarshal(body, &instrumentsResp); err != nil {
+			return nil, fmt.Errorf("failed to unmarshal response: %w", err)
+		}
+
+		if instrumentsResp.RetCode != 0 {
+			return nil, fmt.Errorf("API error: retCode=%d, msg=%s", instrumentsResp.RetCode, instrumentsResp.RetMsg)
+		}
+
+		for _, instrument := range instrumentsResp.Result.List {
+			if instrument.Status == "Trading" && strings.HasSuffix(instrument.Symbol, "USDT") {
+				symbols = append(symbols, instrument.Symbol)
+			}
+		}
+
+		cursor = instrumentsResp.Result.NextPageCursor
+		if cursor == "" {
+			break
+		}
+
+		// Avoid hitting rate limits during pagination
+		time.Sleep(100 * time.Millisecond)
 	}
+
+	c.cachedSymbols = symbols
+	c.lastSymbolsUpdate = time.Now()
 
 	log.Printf("Retrieved %d symbols from Bybit", len(symbols))
 	return symbols, nil
