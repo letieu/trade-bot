@@ -71,17 +71,63 @@ func (b *Bot) Start() error {
 		return b.scan()
 	}
 
-	ticker := time.NewTicker(b.config.Bot.ScanInterval)
-	defer ticker.Stop()
+	var wg sync.WaitGroup
+	for _, interval := range b.config.Bot.EnabledIntervals {
+		wg.Add(1)
+		go func(intervalStr string) {
+			defer wg.Done()
+			b.runIntervalLoop(intervalStr)
+		}(interval)
+	}
+
+	wg.Wait()
+	return nil
+}
+
+func (b *Bot) runIntervalLoop(intervalStr string) {
+	duration, err := types.ParseInterval(intervalStr)
+	if err != nil {
+		log.Printf("[%s] Failed to parse interval: %v", intervalStr, err)
+		return
+	}
 
 	for {
-		select {
-		case <-ticker.C:
-			if err := b.scan(); err != nil {
-				log.Printf("Error during scan: %v", err)
-			}
+		now := time.Now().UTC()
+		next := now.Truncate(duration).Add(duration)
+		// Add a small delay to ensure the candle is fully closed and data is available on the provider side
+		next = next.Add(5 * time.Second)
+
+		sleepDuration := time.Until(next)
+		log.Printf("[%s] Next scan in %v at %v", intervalStr, sleepDuration.Round(time.Second), next.Local().Format("15:04:05"))
+
+		timer := time.NewTimer(sleepDuration)
+		<-timer.C
+
+		log.Printf("[%s] Starting scan...", intervalStr)
+		if err := b.scanSpecificInterval(intervalStr); err != nil {
+			log.Printf("[%s] Error during scan: %v", intervalStr, err)
 		}
 	}
+}
+
+func (b *Bot) scanSpecificInterval(interval string) error {
+	symbols, err := b.provider.GetSymbols()
+	if err != nil {
+		return fmt.Errorf("failed to get symbols: %w", err)
+	}
+
+	signals := b.scanInterval(symbols, interval)
+
+	if len(signals) > 0 {
+		log.Printf("[%s] Found %d signals, sending result", interval, len(signals))
+		if err := b.sender.SendSignals(signals); err != nil {
+			return fmt.Errorf("failed to send signals: %w", err)
+		}
+	} else {
+		log.Printf("[%s] No signals found", interval)
+	}
+
+	return nil
 }
 
 func (b *Bot) scan() error {

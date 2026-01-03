@@ -118,7 +118,7 @@ func (b *Bot) formatSignalsMessage(signals []types.Signal, currentChunk, totalCh
 		}
 
 		// Format: 🟢 <a href="..."><b>BTCUSDT</b></a>
-		url := fmt.Sprintf("https://www.bybit.com/trade/usdt/%s", signal.Symbol)
+		url := fmt.Sprintf("https://www.bybitglobal.com/trade/usdt/%s", signal.Symbol)
 		line := fmt.Sprintf("%s <a href=\"%s\"><b>%s</b></a>\n", icon, url, signal.Symbol)
 
 		builder.WriteString(line)
