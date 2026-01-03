@@ -35,7 +35,7 @@ func (s *ThreeCandleReversal) Match(candles []types.Candle) (bool, error) {
 }
 
 func (s *ThreeCandleReversal) GetName() string {
-	return "🟢🟢🟢🔴"
+	return "Three Candle Reversal 🕯️"
 }
 
 func (s *ThreeCandleReversal) GetDescription() string {
