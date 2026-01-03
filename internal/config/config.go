@@ -27,7 +27,6 @@ type BybitConfig struct {
 }
 
 type BotConfig struct {
-	ScanInterval     time.Duration `mapstructure:"scanInterval"`
 	BatchSize        int           `mapstructure:"batchSize"`
 	MaxConcurrency   int           `mapstructure:"maxConcurrency"`
 	EnabledIntervals []string      `mapstructure:"enabledIntervals"`
@@ -52,7 +51,6 @@ func Load(configFile string) *Config {
 	})
 
 	// Set defaults for bot config
-	v.SetDefault("bot.scanInterval", "1m")
 	v.SetDefault("bot.batchSize", 20)
 	v.SetDefault("bot.maxConcurrency", 5)
 	v.SetDefault("bot.enabledIntervals", []string{"1h", "4h", "1d"})

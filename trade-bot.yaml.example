@@ -13,7 +13,6 @@ bybit:
     Content-Type: "application/json"
 
 bot:
-  scanInterval: "1m"
   batchSize: 20
   maxConcurrency: 5
   frontend: "telegram" # options: "telegram", "console"
