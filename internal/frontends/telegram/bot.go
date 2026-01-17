@@ -191,10 +191,11 @@ func (b *Bot) SendMessage(message string) error {
 
 func (b *Bot) formatGroupedMessage(pattern, interval string, bullish, bearish []symbolInfo, currentChunk, totalChunks int, timestamp time.Time) string {
 	var builder strings.Builder
+	loc := time.FixedZone("UTC+7", 7*60*60)
 
 	// Header - only show on first chunk
 	if currentChunk == 1 {
-		runTime := timestamp.Format("2006-01-02 15:04:05")
+		runTime := timestamp.In(loc).Format("2006-01-02 15:04:05")
 		chunkInfo := ""
 		if totalChunks > 1 {
 			chunkInfo = fmt.Sprintf(" [%d/%d]", currentChunk, totalChunks)
