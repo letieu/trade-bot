@@ -237,9 +237,25 @@ func (b *Bot) checkSymbol(symbol, interval string) []types.Signal {
 		return nil
 	}
 
-	// Exclude the last candle (incomplete/forming) to ensure confirmed signals
+	// Exclude the last candle if it is incomplete/forming to ensure confirmed signals
 	if len(candles) > 0 {
-		candles = candles[:len(candles)-1]
+		duration, err := types.ParseInterval(interval)
+		if err != nil {
+			log.Printf("Failed to parse interval %s for symbol %s: %v", interval, symbol, err)
+			return nil
+		}
+
+		// Calculate the expected start time of the current OPEN candle
+		// We use UTC to match Bybit's time standard
+		currentOpenTime := time.Now().UTC().Truncate(duration).UnixMilli()
+		lastCandle := candles[len(candles)-1]
+
+		// Only remove the last candle if it matches the current open interval
+		if lastCandle.Timestamp == currentOpenTime {
+			candles = candles[:len(candles)-1]
+		} else {
+			log.Printf("%s dont need remove last, open: %d", symbol, currentOpenTime)
+		}
 	}
 
 	if len(candles) < 4 {
