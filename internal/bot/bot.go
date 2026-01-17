@@ -107,7 +107,7 @@ func (b *Bot) runIntervalLoop(intervalStr string) {
 		now := time.Now().UTC()
 		next := now.Truncate(duration).Add(duration)
 		// Add a small delay to ensure the candle is fully closed and data is available on the provider side
-		next = next.Add(5 * time.Second)
+		next = next.Add(60 * time.Second)
 
 		sleepDuration := time.Until(next)
 		log.Printf("[%s] Next scan in %v at %v", intervalStr, sleepDuration.Round(time.Second), next.Local().Format("15:04:05"))
