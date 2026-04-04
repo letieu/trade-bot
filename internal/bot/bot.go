@@ -47,6 +47,7 @@ func NewBot(cfg *config.Config) *Bot {
 	strategies := []types.PatternMatcher{
 		strategies.NewThreeCandleReversal(),
 		strategies.NewConsecutiveCandles(3),
+		strategies.NewEngulfingAntiFomoDefault(),
 	}
 
 	return &Bot{
@@ -231,7 +232,8 @@ func (b *Bot) checkSymbol(symbol, interval string) []types.Signal {
 		}
 	}
 
-	candles, err := b.provider.GetCandles(symbol, interval, maxRequired, b.config.Bot.TargetTime)
+	// Request one extra candle to account for potential removal of forming candle
+	candles, err := b.provider.GetCandles(symbol, interval, maxRequired+1, b.config.Bot.TargetTime)
 	if err != nil {
 		log.Printf("Failed to get candles for %s: %v", symbol, err)
 		return nil
@@ -267,6 +269,13 @@ func (b *Bot) checkSymbol(symbol, interval string) []types.Signal {
 
 	// Check all strategies
 	for _, strategy := range b.strategies {
+		// Skip if we don't have enough candles for this strategy
+		if len(candles) < strategy.GetRequiredCandles() {
+			log.Printf("%s: Not enough candles for %s (need %d, have %d)",
+				symbol, strategy.GetName(), strategy.GetRequiredCandles(), len(candles))
+			continue
+		}
+
 		matched, err := strategy.Match(candles)
 		if err != nil {
 			log.Printf("Error matching pattern %s for %s: %v", strategy.GetName(), symbol, err)
@@ -280,11 +289,18 @@ func (b *Bot) checkSymbol(symbol, interval string) []types.Signal {
 		lastCandles := candles[len(candles)-4:]
 		lastCandle := candles[len(candles)-1]
 
-		// Get metadata from strategy (e.g., consecutive count)
+		// Get metadata from strategy (e.g., consecutive count, RSI, stop loss)
 		metadata := strategy.GetMetadata(candles)
 		consecutiveCount := 0
 		if count, ok := metadata["consecutive_count"].(int); ok {
 			consecutiveCount = count
+		}
+
+		rsi := 0.0
+		if rsiVal, ok := metadata["rsi"].(float64); ok {
+			rsi = rsiVal
+		} else if _, exists := metadata["rsi"]; exists {
+			log.Printf("Warning: Invalid RSI metadata type for %s %s pattern %s", symbol, interval, strategy.GetName())
 		}
 
 		signal := types.Signal{
@@ -293,7 +309,7 @@ func (b *Bot) checkSymbol(symbol, interval string) []types.Signal {
 			Pattern:          strategy.GetName(),
 			Trend:            "bullish",
 			Price:            lastCandle.Close,
-			RSI:              0,
+			RSI:              rsi,
 			EMA:              0,
 			Volume:           lastCandle.Volume,
 			Timestamp:        time.Now(),

@@ -18,20 +18,20 @@ func TestThreeCandleReversal_Match(t *testing.T) {
 		{
 			name: "Bullish Reversal (Red, Red, Red, Green)",
 			candles: []types.Candle{
-				createCandle(100, 90),  // Red
-				createCandle(90, 80),   // Red
-				createCandle(80, 70),   // Red
-				createCandle(70, 75),   // Green
+				createCandle(100, 90), // Red
+				createCandle(90, 80),  // Red
+				createCandle(80, 70),  // Red
+				createCandle(70, 75),  // Green
 			},
 			wantMatch: true,
 		},
 		{
 			name: "Bearish Reversal (Green, Green, Green, Red)",
 			candles: []types.Candle{
-				createCandle(10, 20),   // Green
-				createCandle(20, 30),   // Green
-				createCandle(30, 40),   // Green
-				createCandle(40, 35),   // Red
+				createCandle(10, 20), // Green
+				createCandle(20, 30), // Green
+				createCandle(30, 40), // Green
+				createCandle(40, 35), // Red
 			},
 			wantMatch: true,
 		},
@@ -70,7 +70,7 @@ func TestThreeCandleReversal_Match(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			got, err := strategy.Match(tt.candles)
 			if (err != nil) != (tt.name == "Not Enough Candles") {
-				// Only "Not Enough Candles" expects an error here? 
+				// Only "Not Enough Candles" expects an error here?
 				// Actually strategy returns error if len < 4.
 				if tt.name != "Not Enough Candles" {
 					t.Errorf("Match() error = %v, wantErr %v", err, false)
@@ -92,18 +92,4 @@ func createCandle(open, close float64) types.Candle {
 		Low:       min(open, close) - 1,
 		Volume:    1000,
 	}
-}
-
-func max(a, b float64) float64 {
-	if a > b {
-		return a
-	}
-	return b
-}
-
-func min(a, b float64) float64 {
-	if a < b {
-		return a
-	}
-	return b
 }

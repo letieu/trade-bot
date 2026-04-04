@@ -43,7 +43,7 @@ func (s *ThreeCandleReversal) GetDescription() string {
 }
 
 func (s *ThreeCandleReversal) GetRequiredCandles() int {
-	return 5
+	return 4
 }
 
 func (s *ThreeCandleReversal) GetMetadata(candles []types.Candle) map[string]interface{} {
